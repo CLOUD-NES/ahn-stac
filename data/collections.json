@@ -1,0 +1,172 @@
+[
+  {
+    "type": "Collection",
+    "stac_version": "1.1.0",
+    "id": "AHN2",
+    "description": "Actueel Hoogtebestand Nederland 2",
+    "license": "other",
+    "extent": {
+      "spatial": {
+        "bbox": [
+          [
+            3.3476634913407675,
+            50.742712864511326,
+            7.242198638938085,
+            53.52635785789196
+          ]
+        ]
+      },
+      "temporal": {
+        "interval": [
+          [
+            "2007-01-01T00:00:00Z",
+            "2012-12-31T23:59:59Z"
+          ]
+        ]
+      }
+    },
+    "links": [],
+    "assets": {
+      "data": {
+        "href": "./AHN2.parquet",
+        "type": "application/vnd.apache.parquet"
+      }
+    }
+  },
+  {
+    "type": "Collection",
+    "stac_version": "1.1.0",
+    "id": "AHN3",
+    "description": "Actueel Hoogtebestand Nederland 3",
+    "license": "other",
+    "extent": {
+      "spatial": {
+        "bbox": [
+          [
+            3.3500689143502287,
+            50.742712864511326,
+            7.242198638938085,
+            53.52635785789196
+          ]
+        ]
+      },
+      "temporal": {
+        "interval": [
+          [
+            "2014-01-01T00:00:00Z",
+            "2019-12-31T23:59:59Z"
+          ]
+        ]
+      }
+    },
+    "links": [],
+    "assets": {
+      "data": {
+        "href": "./AHN3.parquet",
+        "type": "application/vnd.apache.parquet"
+      }
+    }
+  },
+  {
+    "type": "Collection",
+    "stac_version": "1.1.0",
+    "id": "AHN4",
+    "description": "Actueel Hoogtebestand Nederland 4",
+    "license": "other",
+    "extent": {
+      "spatial": {
+        "bbox": [
+          [
+            3.3500689143502287,
+            50.742712864511326,
+            7.242198638938085,
+            53.52635785789196
+          ]
+        ]
+      },
+      "temporal": {
+        "interval": [
+          [
+            "2020-01-01T00:00:00Z",
+            "2022-12-31T23:59:59Z"
+          ]
+        ]
+      }
+    },
+    "links": [],
+    "assets": {
+      "data": {
+        "href": "./AHN4.parquet",
+        "type": "application/vnd.apache.parquet"
+      }
+    }
+  },
+  {
+    "type": "Collection",
+    "stac_version": "1.1.0",
+    "id": "AHN5",
+    "description": "Actueel Hoogtebestand Nederland 5",
+    "license": "other",
+    "extent": {
+      "spatial": {
+        "bbox": [
+          [
+            3.3500689143502287,
+            50.742712864511326,
+            6.429584823358134,
+            53.52611660861002
+          ]
+        ]
+      },
+      "temporal": {
+        "interval": [
+          [
+            "2023-01-01T00:00:00Z",
+            "2024-12-31T23:59:59Z"
+          ]
+        ]
+      }
+    },
+    "links": [],
+    "assets": {
+      "data": {
+        "href": "./AHN5.parquet",
+        "type": "application/vnd.apache.parquet"
+      }
+    }
+  },
+  {
+    "type": "Collection",
+    "stac_version": "1.1.0",
+    "id": "AHN6",
+    "description": "Actueel Hoogtebestand Nederland 6",
+    "license": "other",
+    "extent": {
+      "spatial": {
+        "bbox": [
+          [
+            5.314345512252203,
+            51.80897525555124,
+            7.361399152257789,
+            53.47821474900789
+          ]
+        ]
+      },
+      "temporal": {
+        "interval": [
+          [
+            "2025-01-01T00:00:00Z",
+            "2027-12-31T23:59:59Z"
+          ]
+        ]
+      }
+    },
+    "links": [],
+    "assets": {
+      "data": {
+        "href": "./AHN6.parquet",
+        "type": "application/vnd.apache.parquet"
+      }
+    }
+  }
+]
