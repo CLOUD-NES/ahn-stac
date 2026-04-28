@@ -54,4 +54,16 @@ rustac search --bbox 5.085297,52.050390,5.197220,52.117516 https://raw.githubuse
   stac-asset download -i PC --max-concurrent-downloads 1
 ```
 
+## Development
+
+### STAC API
+
+Serve the collections as a STAC API using [`stac-fastapi-geoparquet`](https://github.com/stac-utils/stac-fastapi-geoparquet) using:
+
+```shell
+docker compose up
+```
+
+The STAC API should run at http://127.0.0.1:8000 (you can inspect the catalog using the [STAC Browser](https://radiantearth.github.io/stac-browser/#/external/http:/127.0.0.1:8000/)).
+
 
