@@ -12,9 +12,10 @@ import json
 import pathlib
 
 import geopandas as gpd
-import rustac
 import shapely
 import yaml
+
+from rustac.geoparquet import geoparquet_writer
 
 
 CONFIG_PATH = pathlib.Path(__file__).parent / "generate-ahn-geoparquet.yaml"
@@ -35,23 +36,45 @@ async def main() -> None:
 
     collections = []
     for collection_id, collection_info in config["collections"].items():
+
         resource_files = config["resources"]["files"][collection_id]
+
         start_datetime = collection_info["start_datetime"]
         end_datetime = collection_info["end_datetime"]
-        assets = load_asset_urls(resource_dir, resource_files)
-        items = generate_item_table(assets, assets_info)
-        item_dicts = [
-            create_item_dict(
-                item_id, x.bbox, x.bbox_proj, x.geometry, x.assets, start_datetime, end_datetime,
-                collection_id
-            ) for item_id, x in items.iterrows()
-        ]
-        await rustac.write(str(output_dir / f"{collection_id}.parquet"), item_dicts)
-        collection_bbox = items.total_bounds.tolist()
+        collection_title = collection_info["title"]
         collection_description = collection_info["description"]
-        collections.append(create_collection_dict(
-            collection_id, collection_bbox, start_datetime, end_datetime, collection_description,
-        ))
+
+        assets = load_asset_urls(resource_dir, resource_files)
+        item_table = generate_item_table(assets, assets_info)
+        collection_bbox = item_table.total_bounds.tolist()
+
+        items = [
+            create_item_dict(
+                str(item_id),
+                x.bbox,
+                x.bbox_proj,
+                x.geometry,
+                x.assets,
+                start_datetime,
+                end_datetime,
+                collection_id,
+            ) for item_id, x in item_table.iterrows()
+        ]
+        collection = create_collection_dict(
+            collection_id,
+            collection_bbox,
+            start_datetime,
+            end_datetime,
+            collection_title,
+            collection_description,
+        )
+        collections.append(collection)
+
+        # provide a first batch of items to define the schemas
+        async with geoparquet_writer([items[0]], str(output_dir / f"{collection_id}.parquet")) as gw:
+            await gw.add_collection(collection)
+            # now write all remaining items
+            await gw.write(items[1:])
     write_collections(output_dir / "collections.json", collections)
 
 
@@ -76,7 +99,8 @@ def load_asset_urls(
 
 
 def generate_item_table(
-        assets: dict[str, gpd.GeoDataFrame], assets_info: dict[str, str]
+        assets: dict[str, gpd.GeoDataFrame],
+        assets_info: dict[str, dict[str, str]]
 ) -> gpd.GeoDataFrame:
     """Merge all asset tables under unique items, and structure them according to the STAC spec."""
     # match all asset tables with a spatial join on the asset geometries
@@ -115,8 +139,14 @@ def generate_item_table(
 
 
 def create_item_dict(
-        id: str, bbox: list[float], bbox_proj: list[float], geometry: shapely.Geometry,
-        assets: dict, start_datetime: str, end_datetime: str, collection_id: str,
+        id: str,
+        bbox: list[float],
+        bbox_proj: list[float],
+        geometry: shapely.Geometry,
+        assets: dict,
+        start_datetime: str,
+        end_datetime: str,
+        collection_id: str,
 ):
     """Generate STAC-compliant Item dictionary."""
     return {
@@ -139,13 +169,19 @@ def create_item_dict(
     }
 
 def create_collection_dict(
-        id: str, bbox: list[float], start_datetime: str, end_datetime: str, description: str
+        id: str,
+        bbox: list[float],
+        start_datetime: str,
+        end_datetime: str,
+        title: str,
+        description: str,
 ):
     """Generate STAC-compliant Collection dictionary."""
     return {
         "type": "Collection",
         "stac_version": STAC_VERSION,
         "id": id,
+        "title": title,
         "description": description,
         "license": "other",
         "extent": {

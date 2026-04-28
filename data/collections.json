@@ -3,7 +3,8 @@
     "type": "Collection",
     "stac_version": "1.1.0",
     "id": "AHN2",
-    "description": "Actueel Hoogtebestand Nederland 2",
+    "title": "Actueel Hoogtebestand Nederland 2",
+    "description": "AHN2 dataset tiled according the 1x1 km grid. It includes point cloud data in Cloud-Optimized Point Cloud (COPC) format as well as DTM and DSM data in GeoTIFF format.",
     "license": "other",
     "extent": {
       "spatial": {
@@ -37,7 +38,8 @@
     "type": "Collection",
     "stac_version": "1.1.0",
     "id": "AHN3",
-    "description": "Actueel Hoogtebestand Nederland 3",
+    "title": "Actueel Hoogtebestand Nederland 3",
+    "description": "AHN3 dataset tiled according the 1x1 km grid. It includes point cloud data in Cloud-Optimized Point Cloud (COPC) format as well as DTM and DSM data in GeoTIFF format.",
     "license": "other",
     "extent": {
       "spatial": {
@@ -71,7 +73,8 @@
     "type": "Collection",
     "stac_version": "1.1.0",
     "id": "AHN4",
-    "description": "Actueel Hoogtebestand Nederland 4",
+    "title": "Actueel Hoogtebestand Nederland 4",
+    "description": "AHN4 dataset tiled according the 1x1 km grid. It includes point cloud data in Cloud-Optimized Point Cloud (COPC) format as well as DTM and DSM data in GeoTIFF format.",
     "license": "other",
     "extent": {
       "spatial": {
@@ -105,7 +108,8 @@
     "type": "Collection",
     "stac_version": "1.1.0",
     "id": "AHN5",
-    "description": "Actueel Hoogtebestand Nederland 5",
+    "title": "Actueel Hoogtebestand Nederland 5",
+    "description": "AHN5 dataset tiled according the 1x1 km grid. It includes point cloud data in Cloud-Optimized Point Cloud (COPC) format as well as DTM and DSM data in GeoTIFF format.",
     "license": "other",
     "extent": {
       "spatial": {
@@ -139,7 +143,8 @@
     "type": "Collection",
     "stac_version": "1.1.0",
     "id": "AHN6",
-    "description": "Actueel Hoogtebestand Nederland 6",
+    "title": "Actueel Hoogtebestand Nederland 6",
+    "description": "AHN6 dataset tiled according the 1x1 km grid. It includes point cloud data in Cloud-Optimized Point Cloud (COPC) format as well as DTM and DSM data in GeoTIFF format.",
     "license": "other",
     "extent": {
       "spatial": {

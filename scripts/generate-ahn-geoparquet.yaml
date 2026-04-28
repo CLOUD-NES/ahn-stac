@@ -2,23 +2,28 @@ output_dir: "../data"
 
 collections:
   AHN2:
-    description: Actueel Hoogtebestand Nederland 2
+    title: Actueel Hoogtebestand Nederland 2
+    description: AHN2 dataset tiled according the 1x1 km grid. It includes point cloud data in Cloud-Optimized Point Cloud (COPC) format as well as DTM and DSM data in GeoTIFF format.
     start_datetime: "2007-01-01T00:00:00Z"
     end_datetime: "2012-12-31T23:59:59Z"
   AHN3:
-    description: Actueel Hoogtebestand Nederland 3
+    title: Actueel Hoogtebestand Nederland 3
+    description: AHN3 dataset tiled according the 1x1 km grid. It includes point cloud data in Cloud-Optimized Point Cloud (COPC) format as well as DTM and DSM data in GeoTIFF format.
     start_datetime: "2014-01-01T00:00:00Z"
     end_datetime: "2019-12-31T23:59:59Z"
   AHN4:
-    description: Actueel Hoogtebestand Nederland 4
+    title: Actueel Hoogtebestand Nederland 4
+    description: AHN4 dataset tiled according the 1x1 km grid. It includes point cloud data in Cloud-Optimized Point Cloud (COPC) format as well as DTM and DSM data in GeoTIFF format.
     start_datetime: "2020-01-01T00:00:00Z"
     end_datetime: "2022-12-31T23:59:59Z"
   AHN5:
-    description: Actueel Hoogtebestand Nederland 5
+    title: Actueel Hoogtebestand Nederland 5
+    description: AHN5 dataset tiled according the 1x1 km grid. It includes point cloud data in Cloud-Optimized Point Cloud (COPC) format as well as DTM and DSM data in GeoTIFF format.
     start_datetime: "2023-01-01T00:00:00Z"
     end_datetime: "2024-12-31T23:59:59Z"
   AHN6:
-    description: Actueel Hoogtebestand Nederland 6
+    title: Actueel Hoogtebestand Nederland 6
+    description: AHN6 dataset tiled according the 1x1 km grid. It includes point cloud data in Cloud-Optimized Point Cloud (COPC) format as well as DTM and DSM data in GeoTIFF format.
     start_datetime: "2025-01-01T00:00:00Z"
     end_datetime: "2027-12-31T23:59:59Z"
 
